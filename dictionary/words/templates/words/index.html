@@ -1,0 +1,26 @@
+
+
+{% extends 'words/layout.html' %}
+
+{% block title %}>Main{% endblock %}
+ 
+{% block content %}
+<ul>
+    <li><a href="/index">Main</a></li>
+    <li><a href="/add">Add</a></li>
+    <li><a href="/delete">Delete</a></li>
+</ul>
+
+<form method="POST" action="delete_word">{% csrf_token %}
+
+    <ul>
+        {% for word in dictionary %}
+        <input type="checkbox">
+        <li>{{ word.word }} : {{ word.translation }}</li>
+        {% endfor%}
+    </ul>
+    <input type="submit" value="delete">
+</form>
+
+{% endblock %}
+

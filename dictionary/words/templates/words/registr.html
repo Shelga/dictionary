@@ -1,0 +1,16 @@
+
+{% extends 'words/layout.html' %}
+
+{% block title %}Registration{% endblock %}
+ 
+{% block content %}
+<h1></h1>
+<form method="POST" action="add_person">{% csrf_token %}
+    <input type="email" name="email">
+    <input type="text" name="first_name">
+    <input type="text" name="last_name">
+    <input type="text" name="password">
+    <input type="text" name="password_conf">
+    <input type="submit" value="Register">
+</form>
+{% endblock %}
