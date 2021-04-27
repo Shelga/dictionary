@@ -12,12 +12,9 @@ class Dictionary(models.Model):
 
 
 class Registration(models.Model):
-    email = models.EmailField(max_length=50)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
     password_conf = models.CharField(max_length=50)
-  
 
     def __str__(self):
-        return f"{self.email} {self.first_name} {self.last_name} {self.password} {self.password_conf}"
+        return f"{self.name} {self.password} {self.password_conf}"

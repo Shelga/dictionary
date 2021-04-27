@@ -1,4 +1,6 @@
 from django import forms
+from .models import Registration
+from django.forms import ModelForm
 
 class AddWordForm(forms.Form):
     word = forms.CharField(max_length=50)
@@ -12,8 +14,11 @@ class DeleteWordForm(forms.Form):
    
 
 class RegistForm(forms.Form):
-    email = forms.EmailField()
-    first_name = forms.CharField(max_length=50)
-    last_name = forms.CharField(max_length=50)
+    name = forms.CharField(max_length=50)
     password = forms.CharField(max_length=50)
     password_conf = forms.CharField(max_length=50)
+
+
+class LoginForm(forms.Form):
+    name = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)
