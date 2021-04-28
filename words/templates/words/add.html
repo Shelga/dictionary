@@ -1,0 +1,22 @@
+
+
+{% extends 'words/layout.html' %}
+
+{% block title %}>Add{% endblock %}
+ 
+{% block content %}
+<ul>
+    <li><a href="/index">Main</a></li>
+    <li><a href="/add">Add</a></li>
+    <li><a href="/delete">Delete</a></li>
+</ul> 
+
+<h1>Add Word:</h1>
+<form method="POST" action="add_word">{% csrf_token %}
+    <input type="text"  name="word">
+    <input type="text" name="translation">
+    <input type="submit" value="add">
+</form>
+
+{% endblock %}
+
