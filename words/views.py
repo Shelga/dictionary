@@ -4,7 +4,7 @@ from django import forms
 from .models import DictionaryLine, User
 from .forms import AddWordForm, CheckKnowForm, DeleteWordForm, RegistForm
 from django.contrib.auth.forms import UserCreationForm
-# Create your views here..
+# Create your views here.
 
 
 
