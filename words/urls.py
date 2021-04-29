@@ -13,4 +13,7 @@ urlpatterns = [
     path('add_person', views.add_person),
     path('login', views.login),
     path('api/word/learn', views.learned_words),
+    # path('api/word/forget', views.words_forgotten),
+    # path('forgotten', views.words_forgotten),
 ]
+

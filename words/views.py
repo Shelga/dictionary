@@ -10,8 +10,9 @@ from django.contrib.auth.forms import UserCreationForm
 
 def index(request):
     new_words = DictionaryLine.objects.filter(status=False) 
+    print(new_words=new_words)
     return render(request, 'words/index.html', {"dictionary": new_words})
-
+    
 
 def add(request):
     return render(request, 'words/add.html')
@@ -82,6 +83,10 @@ def learned_words(request):
     if request.method == 'GET':
         return render(request, 'words/index.html', {"dictionary": get_word})
 
+
+# def words_forgotten(request):
+#     new_words_forgotten = DictionaryLine.objects.filter(status=True) 
+#     return render(request, 'index.html', {"dictionary": new_words_forgotten})
 
 
 # auth_user_groups            words_dictionary          
