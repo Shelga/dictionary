@@ -10,7 +10,6 @@ from django.contrib.auth.forms import UserCreationForm
 
 def index(request):
     new_words = DictionaryLine.objects.filter(status=False) 
-    print(new_words=new_words)
     return render(request, 'words/index.html', {"dictionary": new_words})
     
 
@@ -73,7 +72,6 @@ def login(request):
 def learned_words(request):
     if request.method == 'POST':  # If the form has been submitted...
         form = CheckKnowForm(request.POST)  # A form bound to the POST data
-        print(request.POST)
         if form.is_valid():  # All validation rules pass
             know = request.POST['know']
             full_word_know = DictionaryLine.objects.get(word=know)
@@ -84,14 +82,14 @@ def learned_words(request):
         return render(request, 'words/index.html', {"dictionary": get_word})
 
 
-# def words_forgotten(request):
-#     new_words_forgotten = DictionaryLine.objects.filter(status=True) 
-#     return render(request, 'index.html', {"dictionary": new_words_forgotten})
+def forgotten(request):
+    return render(request, 'words/forgotten.html')
 
 
-# auth_user_groups            words_dictionary          
-# auth_user_user_permissions  words_registration 
+def words_forgotten(request):
+    new_words_forgotten = DictionaryLine.objects.filter(status=True) 
+    return render(request, 'words/forgotten.html', {"dictionary": new_words_forgotten})
+    
 
-# CREATE TABLE IF NOT EXISTS "words_dictionary" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "word" varchar(50) NOT NULL, "translation" varchar(50) NOT NULL, "status" bool NOT NULL);
-# CREATE TABLE IF NOT EXISTS "words_registration" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(50) NOT NULL, "password_conf" varchar(50) NOT NULL, "name" varchar(50) NOT NULL);
+
 

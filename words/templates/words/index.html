@@ -7,7 +7,7 @@
 {% block content %}
 
 {% for word in dictionary %}
-<form method="POST" action="api/word/learn">{% csrf_token %}
+<form method="POST" action="learned_words">{% csrf_token %}
 
     <ul>
         <input type="hidden" name="know" value="{{ word.word }}">
