@@ -10,7 +10,13 @@ from django.contrib.auth.forms import UserCreationForm
 
 def index(request):
     new_words = DictionaryLine.objects.filter(status=False) 
-    return render(request, 'words/index.html', {"dictionary": new_words})
+
+    numvisit=DictionaryLine.objects.count()  # The 'all()' is implied by default.
+
+    # Number of visits to this view, as counted in the session variable.
+    num_visits=request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits+1
+    return render(request, 'words/index.html', {"dictionary": new_words,  'num_visits': num_visits})
     
 
 def add(request):
