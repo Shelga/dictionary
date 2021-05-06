@@ -1,6 +1,7 @@
 
 from django.urls import path
 from . import views
+from django.urls import include
 
 
 urlpatterns = [
@@ -15,5 +16,8 @@ urlpatterns = [
     path('learned_words', views.learned_words),
     path('words_forgotten', views.words_forgotten),
     path('forgotten', views.forgotten),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('base', views.base),
+    path('layout', views.layout),
 ]
 

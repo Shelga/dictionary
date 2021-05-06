@@ -99,3 +99,10 @@ def words_forgotten(request):
 
 
 
+def base(request):
+    return render(request, 'words/base.html')
+
+
+
+def layout(request):
+    return render(request, 'words/layout.html')
