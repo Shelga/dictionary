@@ -2,6 +2,7 @@
 from django.urls import path
 from . import views
 from django.urls import include
+# from django.contrib.auth import views
 
 
 urlpatterns = [
@@ -11,13 +12,14 @@ urlpatterns = [
     path('delete', views.delete),
     path('delete_word', views.delete_word),
     path('register', views.register),
-    path('add_person', views.add_person),
-    path('login', views.login),
+    path('add_new_user', views.add_new_user),
+     path('login', views.login),
+    # path('login_user', views.login_user),
     path('learned_words', views.learned_words),
     path('words_forgotten', views.words_forgotten),
     path('forgotten', views.forgotten),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('base', views.base),
-    path('layout', views.layout),
+    path('sorry', views.sorry),
+   
 ]
 
